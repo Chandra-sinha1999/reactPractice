@@ -1,21 +1,11 @@
 function DisplayItem(props) {
-    var curTime = "";
-    const time = props.timeframe;
-    if(time.length === 1) {
-        curTime= time[0] + " mins";
-    }
-    else {
-        curTime= time[0] + " : " + time[1];
-    } 
     
     return(
         <li>
-            <div>
-                <img src={props.icon} className="icon"/>
-                <h2>{curTime}</h2>
-                <h3>{props.title}</h3>
-                <p>{props.description}</p>
-            </div>
+            <img src={props.icon} className="icon" alt={props.title}/>
+            <h2>{props.time.length === 1? (props.time[0] + " mins"):(props.time[0] + " : " + props.time[1])}</h2>
+            <h3>{props.title}</h3>
+            <p>{props.description}</p>
         </li>
     );
 }
